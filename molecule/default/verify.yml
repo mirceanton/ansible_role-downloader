@@ -1,10 +1,15 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
 - name: Verify
   hosts: all
-  gather_facts: false
+  gather_facts: true
+
+  vars:
+    downloader_archive_url: https://get.helm.sh/helm-v3.10.1-linux-arm64.tar.gz
+    downloader_archive_dest: /tmp/helm/
+    downloader_exec_src: /tmp/linux-arm64/helm
+    downloader_exec_dest: /usr/bin/helm
+
   tasks:
-  - name: Example assertion
-    ansible.builtin.assert:
-      that: true
+    - name: Check if commands are working
+      ansible.builtin.command: "helm --version"
+      changed_when: false

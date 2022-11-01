@@ -1,6 +1,14 @@
 ---
 - name: Converge
   hosts: all
+  gather_facts: true
+
+  vars:
+    downloader_archive_url: https://get.helm.sh/helm-v3.10.1-linux-arm64.tar.gz
+    downloader_archive_dest: /tmp/helm/
+    downloader_exec_src: /tmp/linux-arm64/helm
+    downloader_exec_dest: /usr/bin/helm
+
   tasks:
     - name: "Include mirceanton.downloader"
       include_role:
