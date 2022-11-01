@@ -1,4 +1,8 @@
 ---
+- name: Install prerequisites
+  ansible.builtin.package:
+    name: unzip
+
 - name: Download and Expand archive
   ansible.builtin.unarchive:
     src: "{{ downloader_archive_url }}"
