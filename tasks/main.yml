@@ -4,6 +4,7 @@
     src: "{{ downloader_archive_url }}"
     dest: "{{ downloader_archive_dest }}"
     remote_src: yes
+    validate_certs: false
 
 - name: Move executable
   ansible.builtin.copy:
