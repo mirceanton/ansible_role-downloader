@@ -1,2 +1,12 @@
 ---
-# tasks file for downloader
+- name: Download and Expand archive
+  ansible.builtin.unarchive:
+    src: "{{ downloader_archive_url }}"
+    dest: "{{ downloader_archive_dest }}"
+
+- name: Move executable
+  ansible.builtin.copy:
+    remote_src: true
+    src: "{{ downloader_exec_src }}"
+    dest: "{{ downloader_exec_dest }}"
+    mode: "{{ downloader_exec_mode | default('755') }}"
