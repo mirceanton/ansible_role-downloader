@@ -1,22 +1,29 @@
-Role Name
-=========
+Ansible Role: Downloader
+========================
 
-A brief description of the role goes here.
+An Ansible role that downloads and extracts an executable out of an archive. Used for installing binaries.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+N/A
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+|         Variable          |     Type     |              Default              |                           Description                            |
+| :-----------------------: | :----------: | :-------------------------------: | :--------------------------------------------------------------: |
+|    `downloader_prereq`    | list(string) | `[unzip, gzip, bzip2, xzip, tar]` |              List of archiving utilities required.               |
+| `downloader_archive_url`  |    string    |            `UNDEFINED`            |            Path or URL where the archive is located.             |
+| `downloader_archive_dest` |    string    |            `UNDEFINED`            | Path to where the archive should be downloaded and extracted to. |
+|   `downloader_exec_src`   |    string    |            `UNDEFINED`            |         Path at which to find the downloaded executable.         |
+|  `downloader_exec_dest`   |    string    |            `UNDEFINED`            |         Path at which to copy the downloaded executable.         |
+|  `downloader_exec_mode`   |    string    |              `0755`               |            Permissions for the downloaded executable.            |
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+N/A
 
 Example Playbook
 ----------------
@@ -30,9 +37,9 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+A role developed by [Mircea-Pavel ANTON](https://www.mirceanton.com).
