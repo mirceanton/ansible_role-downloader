@@ -1,0 +1,7 @@
+---
+downloader_prereq:
+  - unzip
+  - gzip
+  - bzip2
+  - xzip
+  - tar

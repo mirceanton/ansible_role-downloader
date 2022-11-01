@@ -1,0 +1,15 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: true
+
+  vars:
+    downloader_archive_url: https://releases.hashicorp.com/terraform/1.3.3/terraform_1.3.3_linux_amd64.zip
+    downloader_archive_dest: /tmp/
+    downloader_exec_src: /tmp/terraform
+    downloader_exec_dest: /usr/bin/terraform
+
+  tasks:
+    - name: Check if commands are working
+      ansible.builtin.command: "terraform --version"
+      changed_when: false
