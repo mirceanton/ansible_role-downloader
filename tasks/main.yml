@@ -3,6 +3,7 @@
   ansible.builtin.unarchive:
     src: "{{ downloader_archive_url }}"
     dest: "{{ downloader_archive_dest }}"
+    remote_src: yes
 
 - name: Move executable
   ansible.builtin.copy:
