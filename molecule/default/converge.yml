@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include mirceanton.downloader"
+      include_role:
+        name: "mirceanton.downloader"
