@@ -1,7 +1,8 @@
 ---
 - name: Install prerequisites
   ansible.builtin.package:
-    name: unzip
+    name: "{{ item }}"
+  loop: "{{ downloader_prereq }}"
 
 - name: Download and Expand archive
   ansible.builtin.unarchive:
