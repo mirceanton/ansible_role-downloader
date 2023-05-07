@@ -1,19 +1,19 @@
 ---
-- name: Install prerequisites
-  ansible.builtin.package:
-    name: "{{ item }}"
-  loop: "{{ downloader_prereq }}"
+- name: Download Release
+  ansible.builtin.get_url:
+    url: "{{ mri_download_url }}"
+    dest: "{{ mri_download_dest }}"
 
-- name: Download and Expand archive
+- name: Expand Archive
   ansible.builtin.unarchive:
-    src: "{{ downloader_archive_url }}"
-    dest: "{{ downloader_archive_dest }}"
+    src: "{{ mri_download_dest }}"
+    dest: "{{ mri_unarchive_dest }}"
     remote_src: yes
-    validate_certs: false
+  when: mri_unarchive | default(false)
 
-- name: Move executable
+- name: Install Release
   ansible.builtin.copy:
     remote_src: true
-    src: "{{ downloader_exec_src }}"
-    dest: "{{ downloader_exec_dest }}"
-    mode: "{{ downloader_exec_mode | default('755') }}"
+    src: "{{ mri_executable_src }}"
+    dest: "{{ mri_executable_dest }}"
+    mode: "{{ mri_executable_mode | default('0755') }}"
