@@ -1,19 +1,19 @@
 ---
 - name: Download Release
   ansible.builtin.get_url:
-    url: "{{ mri_download_url }}"
-    dest: "{{ mri_download_dest }}"
+    url: "{{ release_installer_download_url }}"
+    dest: "{{ release_installer_download_dest }}"
 
 - name: Expand Archive
   ansible.builtin.unarchive:
-    src: "{{ mri_download_dest }}"
-    dest: "{{ mri_unarchive_dest }}"
+    src: "{{ release_installer_download_dest }}"
+    dest: "{{ release_installer_unarchive_dest }}"
     remote_src: yes
-  when: mri_unarchive | default(false)
+  when: release_installer_unarchive | default(false)
 
 - name: Install Release
   ansible.builtin.copy:
     remote_src: true
-    src: "{{ mri_executable_src }}"
-    dest: "{{ mri_executable_dest }}"
-    mode: "{{ mri_executable_mode | default('0755') }}"
+    src: "{{ release_installer_executable_src }}"
+    dest: "{{ release_installer_executable_dest }}"
+    mode: "{{ release_installer_executable_mode | default('0755') }}"
