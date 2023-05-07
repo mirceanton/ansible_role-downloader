@@ -8,8 +8,9 @@
     downloader_download_dest: /tmp/terraform_1.3.3_linux_amd64.zip
     downloader_unarchive: true
     downloader_unarchive_dest: /tmp
-    downloader_exec_src: /tmp/terraform
-    downloader_exec_dest: /usr/bin/terraform
+    downloader_executable_src: /tmp/terraform
+    downloader_executable_dest: /usr/bin/terraform
+    downloader_executable_mode: '0755'
 
   tasks:
     - name: Install unzip
