@@ -1,7 +1,7 @@
 galaxy_info:
   author: Mircea-Pavel ANTON
   namespace: mirceanton
-  role_name: downloader
+  role_name: release_installer
   description: A role that install a binery from an archive.
   # company: N/A
 
