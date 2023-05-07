@@ -3,18 +3,18 @@
   ansible.builtin.get_url:
     url: "{{ downloader_download_url }}"
     dest: "{{ downloader_download_dest }}"
-    validate_certs: "{{ downloader_download_validate_certs | default(false) }}"
+    validate_certs: "{{ downloader_download_validate_certs }}"
 
 - name: Expand Archive
   ansible.builtin.unarchive:
     src: "{{ downloader_download_dest }}"
     dest: "{{ downloader_unarchive_dest }}"
     remote_src: true
-  when: downloader_unarchive | default(false)
+  when: downloader_unarchive
 
 - name: Install Release
   ansible.builtin.copy:
     src: "{{ downloader_executable_src }}"
     dest: "{{ downloader_executable_dest }}"
-    mode: "{{ downloader_executable_mode | default('0755') }}"
+    mode: "{{ downloader_executable_mode }}"
     remote_src: true
