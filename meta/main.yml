@@ -1,7 +1,7 @@
 galaxy_info:
   author: Mircea-Pavel ANTON
   namespace: mirceanton
-  role_name: release_installer
+  role_name: downloader
   description: A role that install a binery from an archive.
   # company: N/A
 
@@ -12,7 +12,6 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - stretch   # 9
         - buster    # 10
         - bullseye  # 11
     - name: Ubuntu
