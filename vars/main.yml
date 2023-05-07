@@ -1,0 +1,6 @@
+---
+downloader_download_validate_certs: true
+downloader_download_dest: /tmp
+downloader_unarchive: false
+downloader_unarchive_dest: /tmp
+downloader_executable_mode: '0755'

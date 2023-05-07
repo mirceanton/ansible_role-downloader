@@ -17,10 +17,10 @@ lint: |
   ansible-lint .
 
 platforms:
-  - name: Debian-9
-    image: antonmircea/debian-python:9
-    pre_build_image: true
-    privileged: true
+  # - name: Debian-9
+  #   image: antonmircea/debian-python:9
+  #   pre_build_image: true
+  #   privileged: true
   - name: Debian-10
     image: antonmircea/debian-python:10
     pre_build_image: true

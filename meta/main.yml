@@ -12,7 +12,6 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - stretch   # 9
         - buster    # 10
         - bullseye  # 11
     - name: Ubuntu
